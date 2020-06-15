@@ -36,7 +36,9 @@ The Version of [Pytorch](https://pytorch.org/get-started/locally/) depends on CU
 
 ## Ubuntu Installation
 [Downloads Link](https://releases.ubuntu.com/?_ga=2.26883769.549160946.1592251480-1982882452.1590480922)
+
 [Install Ubuntu desktop](https://ubuntu.com/tutorials/tutorial-install-ubuntu-desktop)
+
 [Install Ubuntu Server](https://ubuntu.com/tutorials/tutorial-install-ubuntu-server#1-overview)
 
 ## Pre-Installation
@@ -147,6 +149,7 @@ conda deactivate
 
 ## pytorch
 [Last Version](https://pytorch.org/get-started/locally/)
+
 [Previous Version](https://pytorch.org/get-started/previous-versions/)
 
 ``` bash
