@@ -32,6 +32,8 @@ The Archived Releases of CUDA support Ubuntu Version like:
 
 So if you want to use the CUDA Version 8.0 - 9.2, just choose the Ubuntu 16.04 Version. 
 
+**Example: Ubuntu 16.04 + Graphic Driver 430.64 = CUDA 8.0 - 10.1**
+
 The Version of [Pytorch](https://pytorch.org/get-started/locally/) depends on CUDA Version
 
 ## Ubuntu Installation
@@ -83,24 +85,28 @@ sudo reboot
 nvidia-smi
 ```
 
+Output:    
+NVIDIA-SMI 430.64       Driver Version: 430.64       CUDA Version: 10.1 
+
+
 ## CUDA
 [Archived Releases](https://developer.nvidia.com/cuda-toolkit-archive)
 
 The Version of CUDA depends on Ubuntu's Version and Nvidia-Driver's Version. [Check first](#jump)
 
-Example: Ubuntu 16.04 + CUDA 10.2
+Example: Ubuntu 16.04 + CUDA 10.1
 ``` bash
 # Recommanded: Download the runfile(local)
-wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_440.33.01_linux.run cuda_10.2.89_440.33.01_linux.run
+wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_418.39_linux.run cuda_10.1.105_418.39_linux.run
 # add executable rights
-sudo chmod +x cuda_10.2.89_440.33.01_linux.run
+sudo chmod +x cuda_10.1.105_418.39_linux.run
 # run it
-sudo ./cuda_10.2.89_440.33.01_linux.run
+sudo ./cuda_10.1.105_418.39_linux.run
 # !!! Important !!!
 # 1. Do not choose Installation of Graphics Driver! You did it before.
 # 2. During the Installation. It need to change the Installation path for different Version
 # Options -> Library install path (Blank for system default)
-# /usr/local/cuda-10.2
+# /usr/local/cuda-10.1
 ```
 
 For CUDA version-choose, I set aliases for Terminal:
@@ -109,19 +115,18 @@ vim ~/.bash_aliases
 ```
 Add the line in ~/.bash_aliases
 ``` bash
-# change "cuda-10.2" to the installations version
-alias env_cuda10.2='export PATH=/usr/local/cuda-10.2/bin:$PATH; export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH'
+# change "cuda-10.1" to the installations version
+alias env_cuda10.1='export PATH=/usr/local/cuda-10.1/bin:$PATH; export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH'
 # save and exit: Enter it
 :wq
 # restart the Terminal
 ```
 
 ``` bash
-# Enter env_cuda10.2 to choose the CUDA Version 10.2
-env_cuda10.2
-# check the CUDA Version activated now
+# Enter env_cuda10.1 to choose the CUDA Version 10.1
+env_cuda10.1
+# check the activated CUDA Version now
 nvcc -V
-# output: Cuda compilation tools, release 10.2, V10.2.89
 ```
 
 
@@ -138,25 +143,25 @@ or
 Create conda enviroment for different Pytorch and Python version:
 ``` bash
 # name and pyhton-Version depends on you
-conda create --name dp-pythorch1.5 python=3.7
+conda create --name dp-pythorch1.5-cuda10.1 python=3.7
 # activate conda enviroment
-conda activate dp-pythorch1.5
+conda activate dp-pythorch1.5-cuda10.1
 # you can set different name for different pytorch and python requirements
 # deactivate
 conda deactivate
 ```
 
 
-## pytorch
+## PyTorch
 [Last Version](https://pytorch.org/get-started/locally/)
 
 [Previous Version](https://pytorch.org/get-started/previous-versions/)
 
 ``` bash
 #Choose the conda enviroment first
-conda activate dp-pythorch1.5
+conda activate dp-pythorch1.5-cuda10.1
 # Installation pytorch 1.5 for CUDA 10.2
-conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
+conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 ```
 
 Verification:
@@ -184,6 +189,6 @@ The output should like:
 ## Useage
 
 1. Open Terminal
-2. Activate CUDA: `env_cuda10.2`
-3. Activate conda enviroment: `conda activate dp-pythorch1.5`
+2. Activate CUDA: `env_cuda10.1`
+3. Activate conda enviroment: `conda activate dp-pythorch1.5-cuda10.1`
 4. Execute your script: `python verification.py`
