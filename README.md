@@ -89,8 +89,9 @@ Output:
 NVIDIA-SMI 430.64       Driver Version: 430.64       CUDA Version: 10.1 
 
 
-## CUDA
-[Archived Releases](https://developer.nvidia.com/cuda-toolkit-archive)
+## CUDA (optimal)
+[Archived Releases](https://developer.nvidia.com/cuda-toolkit-archive)   
+**Note: If you install pytorch with Anaconda, it can also contain CUDAtoolkit. [see here](#pytorch)**   
 
 The Version of CUDA depends on Ubuntu's Version and Nvidia-Driver's Version. [Check first](#jump)
 
@@ -160,7 +161,7 @@ conda deactivate
 ``` bash
 #Choose the conda enviroment first
 conda activate dp-pythorch1.5-cuda10.1
-# Installation pytorch 1.5 for CUDA 10.2
+# Installation pytorch 1.5 and CUDA 10.1
 conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 ```
 
@@ -189,6 +190,6 @@ The output should like:
 ## Useage
 
 1. Open Terminal
-2. Activate CUDA: `env_cuda10.1`
-3. Activate conda enviroment: `conda activate dp-pythorch1.5-cuda10.1`
-4. Execute your script: `python verification.py`
+2. Activate CUDA: `dp-pythorch1.5-cuda10.1`
+3. Execute your script: `python verification.py`
+4. (optimal) Activate conda enviroment: `conda activate dp-pythorch1.5-cuda10.1`
